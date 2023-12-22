@@ -122,7 +122,9 @@ function compile {
   export simdjson_SOURCE=BUNDLED
   export duckdb_SOURCE=BUNDLED
   if [ $ARCH == 'x86_64' ]; then
+    echo "start make"
     make $COMPILE_TYPE EXTRA_CMAKE_FLAGS="${COMPILE_OPTION}"
+    echo "finish make"
   elif [[ "$ARCH" == 'arm64' || "$ARCH" == 'aarch64' ]]; then
     CPU_TARGET=$ARCH make $COMPILE_TYPE EXTRA_CMAKE_FLAGS="${COMPILE_OPTION}"
   else
